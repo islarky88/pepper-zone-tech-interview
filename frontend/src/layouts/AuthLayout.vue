@@ -7,6 +7,7 @@
     </div>
     <div class="right">
       <span class="bg-icon"></span>
+      <span class="mini-logo-dark"></span>
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@
 #auth {
   display: flex;
   height: 100vh;
+
   .left {
     display: flex;
     align-items: center;
@@ -25,26 +27,47 @@
     .mini-logo {
       position: absolute;
       top: 41px;
-      left: 122px;
+      left: 80px;
       background: url('~@/assets/logo-dark.png') no-repeat;
       background-size: contain;
       width: 95px;
       height: 33px;
     }
+
     .copyright {
       position: absolute;
       bottom: 20px;
-      left: 139px;
+      left: 80px;
       font-size: 10px;
       color: #b7b7b7;
     }
   }
 
   .right {
-    background: url('~@/assets/bg-auth.svg') no-repeat;
-    background-size: cover;
-    background-color: $dark-color;
     flex: 50%;
+    position: relative;
+    .bg-icon {
+      background: url('~@/assets/bg-auth.svg') no-repeat;
+      background-size: cover;
+      background-color: $dark-color;
+      width: 100%;
+      min-height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .mini-logo-dark {
+      position: absolute;
+      top: 41px;
+      left: 80px;
+      background: url('~@/assets/logo.png') no-repeat;
+      background-size: contain;
+      width: 95px;
+      height: 33px;
+      display: none;
+    }
   }
 
   .title {
@@ -139,5 +162,76 @@
       border: 1px solid $dark-color;
     }
   }
+}
+
+/* ----- RESPONSIVENESS ----- */
+
+@media (min-width: 2561px) and (max-width: 5000px) and (orientation: landscape) {
+}
+@media (min-width: 1921px) and (max-width: 2560px) and (orientation: landscape) {
+}
+
+@media (max-width: 1536px) and (orientation: landscape) {
+}
+
+@media (max-width: 1366px) and (orientation: landscape) {
+}
+
+@media (max-width: 1280px) and (orientation: landscape) {
+}
+
+@media (max-width: 1023.98px) {
+}
+
+@media (max-width: 1023.98px) and (orientation: landscape) {
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 575.98px) {
+  #auth {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+
+    .mini-logo-dark {
+      display: inline;
+    }
+    .mini-logo {
+      display: none;
+    }
+
+    .left {
+      order: 2;
+      // padding: 80px 0;
+      height: 100vh;
+      padding-bottom: 70px;
+    }
+    .right {
+      order: 1;
+      min-height: 523px;
+      display: block;
+      width: 100%;
+
+      .bg-icon {
+        transform: scaleX(-1);
+      }
+
+      .mini-logo-dark {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 374.98px) {
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1112px) and (orientation: portrait) {
 }
 </style>

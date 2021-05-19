@@ -34,7 +34,8 @@ export default {
 <style lang="scss">
 .signup {
   width: 100%;
-  padding: 0 184px 0 139px;
+  max-width: 352px;
+  padding: 0 40px;
   text-align: left;
   display: block;
 
