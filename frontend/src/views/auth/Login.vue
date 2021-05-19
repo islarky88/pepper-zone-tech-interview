@@ -45,7 +45,7 @@ export default {
 .login {
   width: 100%;
   max-width: 352px;
-  padding: 0 40px;
+  padding: 0 37px;
 
   text-align: left;
   display: block;

@@ -7,12 +7,17 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1366,
+    height: 768,
+    minWidth: 1366,
+    minHeight: 768,
+
     webPreferences: {
       nodeIntegration: true,
     },
   });
+
+  mainWindow.setMenu(null);
 
   mainWindow.loadURL(
     url.format({

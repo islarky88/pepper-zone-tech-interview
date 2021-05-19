@@ -60,8 +60,8 @@
 
     .mini-logo-dark {
       position: absolute;
-      top: 41px;
-      left: 80px;
+      top: 15px;
+      left: 17px;
       background: url('~@/assets/logo.png') no-repeat;
       background-size: contain;
       width: 95px;
@@ -211,15 +211,21 @@
       // padding: 80px 0;
       height: 100vh;
       padding-bottom: 70px;
+
+      .copyright {
+        left: 37px;
+      }
     }
     .right {
       order: 1;
-      min-height: 523px;
       display: block;
       width: 100%;
+      min-height: 533px;
 
       .bg-icon {
-        transform: scaleX(-1);
+        background: url('~@/assets/bg-auth-mobile.svg') no-repeat;
+        background-color: $cream-color;
+        background-size: 100%;
       }
 
       .mini-logo-dark {
