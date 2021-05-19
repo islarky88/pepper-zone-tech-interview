@@ -5,7 +5,7 @@
 
     <button class="google-signin">
       <span></span>
-      Sign in with Google
+      Sign up with Google
     </button>
 
     <div class="signin-divider">
