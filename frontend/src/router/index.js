@@ -1,23 +1,37 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import AuthLayout from '@/layouts/AuthLayout.vue';
+import MainLayout from '@/layouts/MainLayout.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('../views/Home.vue'),
+    component: MainLayout,
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import('../views/Home.vue'),
+      },
+    ],
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/Login.vue'),
-  },
-  {
-    path: '/signup',
-    name: 'SignUp',
-    component: () => import('../views/SignUp.vue'),
+    path: '',
+    component: AuthLayout,
+    children: [
+      {
+        path: '/signup',
+        name: 'SignUp',
+        component: () => import('../views/auth/SignUp.vue'),
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: () => import('../views/auth/Login.vue'),
+      },
+    ],
   },
 ];
 
