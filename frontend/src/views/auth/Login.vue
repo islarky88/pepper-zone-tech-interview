@@ -12,8 +12,8 @@
       <span>or Sign In with Email</span>
     </div>
 
-    <TextField name="Email*" />
-    <TextField name="Password*" />
+    <TextField name="Email" :required="true" placeholder="mail@somedomain.com" />
+    <TextField name="Password" :required="true" placeholder="Min. 8 character" />
 
     <div class="remember-forgot">
       <div class="remember-me">

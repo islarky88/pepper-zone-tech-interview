@@ -12,9 +12,9 @@
       <span>or create an account</span>
     </div>
 
-    <TextField name="Username" :required="true" />
-    <TextField name="Email" :required="true" />
-    <TextField name="Password" :required="true" />
+    <TextField name="Username" :required="true" placeholder="someusername" />
+    <TextField name="Email" :required="true" placeholder="mail@somedomain.com" />
+    <TextField name="Password" :required="true" placeholder="Min. 8 character" />
 
     <button class="primary-btn">Sign up</button>
 
@@ -44,8 +44,7 @@ export default {
   }
 
   .primary-btn {
-    margin-top: 31px;
-    margin-bottom: 29px;
+    margin-top: 18px !important;
   }
 }
 </style>

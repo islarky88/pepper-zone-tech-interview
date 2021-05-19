@@ -8,7 +8,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:surge": "vue-cli-service build && surge ./dist pepper-zone-tech-interview.surge.sh"
   },
   "dependencies": {
     "core-js": "^3.6.5",

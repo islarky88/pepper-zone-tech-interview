@@ -1,7 +1,7 @@
 <template>
   <div class="text-field">
-    <h4>{{ name }}</h4>
-    <input type="text" placeholder="mail@somedomain.com" />
+    <h4>{{ name }}{{ required ? '*' : '' }}</h4>
+    <input type="text" :placeholder="placeholder" />
   </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+    placeholder: {
+      type: String,
+      required: false,
+    },
+    required: {
+      type: Boolean,
+      required: false,
     },
   },
 };
