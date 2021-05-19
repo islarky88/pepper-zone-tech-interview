@@ -3,7 +3,13 @@
     <router-view />
   </div>
 </template>
-
+<script>
+export default {
+  mounted() {
+    console.log('ready');
+  },
+};
+</script>
 <style lang="scss">
 // CSS reset
 html,
