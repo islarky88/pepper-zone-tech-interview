@@ -30,12 +30,18 @@ export default {
   }
   input {
     outline: none;
-    width: calc(100% - (27px * 2));
+    width: 100%;
     height: 44px;
     padding: 0 27px;
     border-radius: 22px;
+    box-sizing: border-box;
     background: transparent;
     border: 1px solid $grey-color;
+    transition: 0.6s;
+
+    &:focus {
+      border: 1px solid $dark-color;
+    }
   }
 }
 </style>
