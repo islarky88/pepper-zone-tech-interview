@@ -3,7 +3,7 @@
     <h1 class="title">Login</h1>
     <h3 class="sub-title">Welcome back</h3>
 
-    <button class="google-signin">
+    <button class="google-signin" @click="googleSignin()">
       <span></span>
       Sign in with Google
     </button>
@@ -12,19 +12,19 @@
       <span>or Sign In with Email</span>
     </div>
 
-    <TextField name="Email" :required="true" placeholder="mail@somedomain.com" />
-    <TextField name="Password" :required="true" placeholder="Min. 8 character" />
+    <TextField name="Email" :required="true" placeholder="mail@somedomain.com" :input.sync="email" />
+    <TextField name="Password" :required="true" placeholder="Min. 8 character" :input.sync="password" />
 
     <div class="remember-forgot">
       <div class="remember-me">
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-        <label for="vehicle1">Remember me</label>
+        <input type="checkbox" id="rememberme" name="rememberme" value="Bike" />
+        <label for="rememberme">Remember me</label>
       </div>
 
       <router-link to="/forgot-password">Forgot password?</router-link>
     </div>
 
-    <button class="primary-btn">
+    <button class="primary-btn" @click="login()">
       <span>Login</span>
     </button>
 
@@ -37,6 +37,21 @@ import TextField from '@/components/forms/TextField.vue';
 export default {
   components: {
     TextField,
+  },
+  data() {
+    return {
+      email: '',
+      password: '',
+      rememberMe: false,
+    };
+  },
+  methods: {
+    googleSignin() {
+      window.open('https://127.0.0.1:5000/login', 'GoogleLogin', 'width=400,height=600');
+    },
+    login() {
+      alert(`login. email: ${this.email}, password: ${this.password}`);
+    },
   },
 };
 </script>

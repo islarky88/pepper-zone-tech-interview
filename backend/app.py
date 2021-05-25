@@ -47,6 +47,8 @@ except sqlite3.OperationalError:
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
 
 # Flask-Login helper to retrieve a user from our db
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.get(user_id)
@@ -67,8 +69,10 @@ def index():
         print("asdasd")
         return '<a class="button" href="/login">Google Login</a>'
 
+
 def get_google_provider_cfg():
     return requests.get(GOOGLE_DISCOVERY_URL).json()
+
 
 @app.route("/login")
 def login():
@@ -88,6 +92,7 @@ def login():
     print(request_uri)
     return redirect(request_uri)
 
+
 @app.route("/login/callback")
 def callback():
     # Get authorization code Google sent back to you
@@ -97,7 +102,6 @@ def callback():
     # things on behalf of a user
     google_provider_cfg = get_google_provider_cfg()
     token_endpoint = google_provider_cfg["token_endpoint"]
-
 
     # Prepare and send a request to get tokens! Yay tokens!
     token_url, headers, body = client.prepare_token_request(
@@ -134,7 +138,6 @@ def callback():
     else:
         return "User email not available or not verified by Google.", 400
 
-
     # Create a user in your db with the information provided
     # by Google
     user = User(
@@ -149,13 +152,15 @@ def callback():
     login_user(user)
 
     # Send user back to homepage
-    return redirect(url_for("index"))
+    return redirect("http://localhost:8080/", code=302)
+
 
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("index"))
+
 
 if __name__ == "__main__":
     app.run(ssl_context='adhoc', debug=True)

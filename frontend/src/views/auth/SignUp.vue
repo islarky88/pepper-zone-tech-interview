@@ -12,11 +12,11 @@
       <span>or create an account</span>
     </div>
 
-    <TextField name="Username" :required="true" placeholder="someusername" />
-    <TextField name="Email" :required="true" placeholder="mail@somedomain.com" />
-    <TextField name="Password" :required="true" placeholder="Min. 8 character" />
+    <TextField :input.sync="username" name="Username" :required="true" placeholder="someusername" />
+    <TextField :input.sync="email" name="Email" :required="true" placeholder="mail@somedomain.com" />
+    <TextField :input.sync="password" name="Password" :required="true" placeholder="Min. 8 character" />
 
-    <button class="primary-btn">Sign up</button>
+    <button class="primary-btn" @click="signup()">Sign up</button>
 
     <div>Already registered? <router-link to="/login">Sign in</router-link></div>
   </div>
@@ -27,6 +27,21 @@ import TextField from '@/components/forms/TextField.vue';
 export default {
   components: {
     TextField,
+  },
+  data() {
+    return {
+      username: '',
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    googleSignin() {
+      window.open('https://127.0.0.1:5000/login', 'GoogleLogin', 'width=400,height=600');
+    },
+    signup() {
+      alert(`signup. username: ${this.username},  email: ${this.email}, password: ${this.password}`);
+    },
   },
 };
 </script>

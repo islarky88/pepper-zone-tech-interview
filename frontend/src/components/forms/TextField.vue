@@ -1,7 +1,7 @@
 <template>
   <div class="text-field">
     <h4>{{ name }}{{ required ? '*' : '' }}</h4>
-    <input type="text" :placeholder="placeholder" />
+    <input type="text" :placeholder="placeholder" @input="$emit('update:input', $event.target.value)" />
   </div>
 </template>
 
