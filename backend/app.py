@@ -152,7 +152,7 @@ def callback():
     login_user(user)
 
     # Send user back to homepage
-    return redirect("http://localhost:8080/", code=302)
+    return redirect(url_for("index"))
 
 
 @app.route("/logout")
